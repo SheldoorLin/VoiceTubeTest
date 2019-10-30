@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.sheldon.voicetubetest.R
+import com.sheldon.voicetubetest.databinding.FragmentSettingBinding
 
 class SettingFragment : Fragment() {
 
@@ -21,11 +22,12 @@ class SettingFragment : Fragment() {
     ): View? {
         settingViewModel =
             ViewModelProviders.of(this).get(SettingViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_setting, container, false)
-        val textView: TextView = root.findViewById(R.id.text_setting)
-        settingViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        val binding = FragmentSettingBinding.inflate(inflater, container, false)
+
+
+
+
+        
+        return binding.root
     }
 }

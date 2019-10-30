@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.sheldon.voicetubetest.R
+import com.sheldon.voicetubetest.databinding.FragmentCountDownBinding
 
 class CountDownFragment : Fragment() {
 
@@ -20,15 +21,16 @@ class CountDownFragment : Fragment() {
     ): View? {
         countDownViewModel =
             ViewModelProviders.of(this).get(CountDownViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_count_down, container, false)
-        countDownViewModel.text.observe(this, Observer {
-        })
+
+
+
+        val binding = FragmentCountDownBinding.inflate(inflater,container,false)
 
 
 
 
 
 
-        return root
+        return binding.root
     }
 }
