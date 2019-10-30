@@ -9,6 +9,7 @@ data class HomeVideoData(
     val status: String,
 
     val videos: List<Videos>
+
 ) : Parcelable
 
 

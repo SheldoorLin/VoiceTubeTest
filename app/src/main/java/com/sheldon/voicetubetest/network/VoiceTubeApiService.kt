@@ -33,18 +33,17 @@ private val retrofit = Retrofit.Builder()
 
 
 //從網路得到 marketing-hots Data
-interface StylishApiService {
+interface VoiceTubeApiService {
 
-    //送出provider & access_token 資料 並得到回傳資料於UserData
+    //送出 key & VoiceTube 並得到回傳資料於HomeVideoData
+
     @FormUrlEncoded
     @POST("/appQuiz")
     fun getVoiceTubeData(
-        @Field("key") key: String,
-        @Field("value") value: String
+        @Field("key") key: String = "VoiceTube"
     ): Deferred<HomeVideoData>
-
 }
 
-object StylishApi {
-    val retrofitService: StylishApiService by lazy { retrofit.create(StylishApiService::class.java) }
+object VoiceTubeApi {
+    val retrofitService: VoiceTubeApiService by lazy { retrofit.create(VoiceTubeApiService::class.java) }
 }
