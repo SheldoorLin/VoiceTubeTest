@@ -15,12 +15,11 @@ fun bindRecyclerViewWithVideoItems(recyclerView: RecyclerView, videoItems: List<
     videoItems?.let {
         recyclerView.adapter?.apply {
             when (this) {
-                is HomeVideoAdapter -> submitList(it)
+                is HomeVideoAdapter -> submitVideos(it)
             }
         }
     }
 }
-
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -33,7 +32,6 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
                     .placeholder(R.drawable.loading_animation)
                     .error(R.drawable.ic_broken_image)
             )
-            .override(350, 200)
             .into(imgView)
     }
 }

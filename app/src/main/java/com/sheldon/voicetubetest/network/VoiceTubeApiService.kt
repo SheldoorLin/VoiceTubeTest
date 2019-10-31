@@ -32,7 +32,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 
-//從網路得到 marketing-hots Data
+//get Server Data
 interface VoiceTubeApiService {
 
     //送出 key & VoiceTube 並得到回傳資料於HomeVideoData
