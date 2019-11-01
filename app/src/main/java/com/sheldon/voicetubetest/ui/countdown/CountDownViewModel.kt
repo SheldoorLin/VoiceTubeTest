@@ -12,18 +12,15 @@ class CountDownViewModel(private val voiceTubeRepository: VoiceTubeRepository) :
 
     var countShowTime = MutableLiveData<Long>()
 
-    private val _countDownTime = MutableLiveData<Long>()
-
-    val countDownTime: LiveData<Long>
-        get() = _countDownTime
+    var countDownTime: Long = 10L
 
     val isOnCounting = MutableLiveData<Boolean>()
 
     init {
-        countShowTime.value = 10L
+        countShowTime.value = 0L
     }
 
-    private val counter = object : CountDownTimer(countDownTime.value!! * 1000, 1000) {
+    private val counter = object : CountDownTimer(countDownTime* 1000, 1000) {
         override fun onFinish() {
             isOnCounting.value = false
         }
@@ -33,7 +30,7 @@ class CountDownViewModel(private val voiceTubeRepository: VoiceTubeRepository) :
             Logger.d("time is ${millisUntilFinished / 1000}")
         }
     }
-    
+
 
     fun startCountDown() {
         counter.resume()
