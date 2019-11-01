@@ -51,6 +51,15 @@ class SettingViewModel(private val voiceTubeRepository: VoiceTubeRepository) : V
     }
 
 
+    fun insertToSetting(){
+        settingButtonStatus.value?.let {
+            coroutineScope.launch {
+
+            }
+        }
+    }
+
+
     private fun updateDatabase(settingStatus: SettingStatus) {
         status.value?.let {
             coroutineScope.launch {

@@ -19,4 +19,11 @@
     <string name="learn_notification">學習通知</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
+    <string name="count_second">欲倒數秒數</string>
+    <string name="start">Count Start</string>
+    <string name="resume">Count Resume</string>
+    <string name="stop">Count Stop</string>
+    <string name="pause">Count Pause</string>
+    <string name="time_remaining">倒數時間</string>
+    <string name="init_time_second">0</string>
 </resources>

@@ -47,10 +47,9 @@ class DBTest {
             subtitle_sync = false
         )
 
-        voiceTubeDatabaseDao.insert(newAddToDB)
+        voiceTubeDatabaseDao.update(newAddToDB)
 
         val settingNow = voiceTubeDatabaseDao.getAllSetting()
-        assertEquals(settingNow.value?.auto_play, true)
+        assertEquals(true ,  settingNow.value?.auto_play)
     }
-
 }

@@ -3,6 +3,7 @@ package com.sheldon.voicetubetest.factory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sheldon.voicetubetest.data.source.VoiceTubeRepository
+import com.sheldon.voicetubetest.ui.countdown.CountDownViewModel
 import com.sheldon.voicetubetest.ui.home.HomeViewModel
 import com.sheldon.voicetubetest.ui.setting.SettingViewModel
 
@@ -19,6 +20,10 @@ class ViewModelFactory constructor(
 
                 isAssignableFrom(SettingViewModel::class.java) ->
                     SettingViewModel(voiceTubeRepository)
+
+                isAssignableFrom(CountDownViewModel::class.java) ->
+                    CountDownViewModel(voiceTubeRepository)
+                
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
             }

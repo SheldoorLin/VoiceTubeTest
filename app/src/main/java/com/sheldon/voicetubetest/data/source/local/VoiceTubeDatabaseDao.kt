@@ -35,8 +35,7 @@ interface VoiceTubeDatabaseDao {
      *
      * sorted by product_id in ascending order.
      */
-    @Query("SELECT * FROM status_in_setting_table ORDER BY auto_play ASC")
+    @Query("SELECT * FROM status_in_setting_table")
     fun getAllSetting():
             LiveData<SettingStatus>
-
 }

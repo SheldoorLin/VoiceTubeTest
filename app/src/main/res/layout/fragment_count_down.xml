@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="converter"
+            type="com.sheldon.voicetubetest.Converter" />
+
+        <variable
+            name="viewModel"
+            type="com.sheldon.voicetubetest.ui.countdown.CountDownViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,16 +19,83 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text_count_down"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:id="@+id/tx_show_time"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:padding="@dimen/padding"
+            android:text="@string/init_time_second"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="@+id/ed_count_second"
+            app:layout_constraintStart_toStartOf="@+id/ed_count_second"
+            app:layout_constraintTop_toBottomOf="@+id/tx_time_remaining" />
+
+        <EditText
+            android:id="@+id/ed_count_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="time"
+            android:text="@={converter.longToString(viewModel.countDownTime)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tx_label" />
+
+        <Button
+            android:id="@+id/btn_resume"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/start"
+            app:layout_constraintEnd_toEndOf="@+id/tx_show_time"
+            app:layout_constraintStart_toStartOf="@+id/tx_show_time"
+            app:layout_constraintTop_toBottomOf="@+id/tx_show_time" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/resume"
+            app:layout_constraintEnd_toEndOf="@+id/btn_pause"
+            app:layout_constraintStart_toStartOf="@+id/btn_pause"
+            app:layout_constraintTop_toBottomOf="@+id/btn_pause" />
+
+        <TextView
+            android:id="@+id/tx_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/padding"
+            android:text="@string/count_second"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/ed_count_second"
+            app:layout_constraintStart_toStartOf="@+id/ed_count_second"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_pause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pause"
+            app:layout_constraintEnd_toEndOf="@+id/btn_resume"
+            app:layout_constraintStart_toStartOf="@+id/btn_resume"
+            app:layout_constraintTop_toBottomOf="@+id/btn_resume" />
+
+        <TextView
+            android:id="@+id/tx_time_remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/padding"
+            android:text="@string/time_remaining"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/ed_count_second"
+            app:layout_constraintTop_toBottomOf="@+id/ed_count_second" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
