@@ -31,12 +31,66 @@ class SettingFragment : Fragment() {
 
         settingViewModel.isSwAutoPayOpen.observe(this, Observer {
             it.let {
-//                settingViewModel.settingButtonStatus.value?.auto_play = it
+                settingViewModel.settingButtonStatus.value?.auto_play = it
+                settingViewModel.settingButtonStatus.observe(this, Observer {
+                    it?.let {
+                        settingViewModel.updateDatabase(it)
+                    }
+                })
                 Logger.d("settingButtonStatus is ${settingViewModel.settingButtonStatus.value}")
                 Logger.d("value is $it")
             }
         })
 
+        settingViewModel.isSwSubtitleSync.observe(this, Observer {
+            it.let {
+                settingViewModel.settingButtonStatus.value?.subtitle_sync = it
+                settingViewModel.settingButtonStatus.observe(this, Observer {
+                    it?.let {
+                        settingViewModel.updateDatabase(it)
+                    }
+                })
+                Logger.d("settingButtonStatus is ${settingViewModel.settingButtonStatus.value}")
+                Logger.d("value is $it")
+            }
+        })
+        settingViewModel.isSwStopPlayInCheckingOpen.observe(this, Observer {
+            it.let {
+                settingViewModel.settingButtonStatus.value?.stop_play_in_checking = it
+                settingViewModel.settingButtonStatus.observe(this, Observer {
+                    it?.let {
+                        settingViewModel.updateDatabase(it)
+                    }
+                })
+                Logger.d("settingButtonStatus is ${settingViewModel.settingButtonStatus.value}")
+                Logger.d("value is $it")
+            }
+        })
+        settingViewModel.isSwRecommendVideoNotificationOpen.observe(this, Observer {
+            it.let {
+                settingViewModel.settingButtonStatus.value?.recommend_video_notification = it
+                settingViewModel.settingButtonStatus.observe(this, Observer {
+                    it?.let {
+                        settingViewModel.updateDatabase(it)
+                    }
+                })
+                Logger.d("settingButtonStatus is ${settingViewModel.settingButtonStatus.value}")
+                Logger.d("value is $it")
+            }
+        })
+
+        settingViewModel.isSwLearnNotificationOpen.observe(this, Observer {
+            it.let {
+                settingViewModel.settingButtonStatus.value?.learn_notification = it
+                settingViewModel.settingButtonStatus.observe(this, Observer {
+                    it?.let {
+                        settingViewModel.updateDatabase(it)
+                    }
+                })
+                Logger.d("settingButtonStatus is ${settingViewModel.settingButtonStatus.value}")
+                Logger.d("value is $it")
+            }
+        })
 
         return binding.root
     }

@@ -33,18 +33,14 @@ class CountDownFragment : Fragment() {
             countDownViewModel.startCountDown()
         }
 
-
         binding.btnPause.setOnClickListener {
 
             countDownViewModel.pauseCountDown()
         }
 
-
         binding.btnResume.setOnClickListener {
             countDownViewModel.resumeCountDown()
         }
-
-
 
 
         countDownViewModel.countShowTime.observe(this, Observer {
