@@ -27,11 +27,6 @@ class HomeVideoAdapter : RecyclerView.Adapter<HomeVideoAdapter.ItemViewHolder>()
                 binding.videos = it
                 val displayMetrics = DisplayMetrics()
                 (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
-                binding.imgVideo.layoutParams = ConstraintLayout.LayoutParams(
-                    displayMetrics.widthPixels, context.resources.getDimensionPixelSize(
-                        R.dimen.height_detail_gallery
-                    )
-                )
                 binding.executePendingBindings()
             }
         }

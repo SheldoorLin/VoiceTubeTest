@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.sheldon.voicetubetest.ui.setting.SettingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,16 +14,106 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text_setting"
-            android:layout_width="match_parent"
+            android:id="@+id/tx_video_setting"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/padding"
+            android:text="@string/play"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/sw_auto_play"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="@dimen/padding"
+            android:text="@string/auto_play"
+            android:showText="true"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            android:checked="@={viewModel.isSwAutoPayOpen()}"
+            android:switchTextAppearance="@style/SwitchTheme"
+            android:thumb="@drawable/switch_custom_thumb_selector"
+            android:track="@drawable/switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="@+id/tx_video_setting"
+            app:layout_constraintStart_toStartOf="@+id/tx_video_setting"
+            app:layout_constraintTop_toBottomOf="@+id/tx_video_setting" />
+
+        <Switch
+            android:id="@+id/sw_subtitle_sync"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
+            android:text="@string/subtitle_sync"
+            android:showText="true"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            android:checked="@={viewModel.isSwSubtitleSync()}"
+            android:switchTextAppearance="@style/SwitchTheme"
+            android:thumb="@drawable/switch_custom_thumb_selector"
+            android:track="@drawable/switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="@+id/sw_auto_play"
+            app:layout_constraintStart_toStartOf="@+id/sw_auto_play"
+            app:layout_constraintTop_toBottomOf="@+id/sw_auto_play" />
+
+        <Switch
+            android:id="@+id/sw_stop_play_in_checking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
+            android:text="@string/stop_play_in_checking"
+            android:showText="true"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            android:checked="@={viewModel.isSwStopPlayInCheckingOpen()}"
+            android:switchTextAppearance="@style/SwitchTheme"
+            android:thumb="@drawable/switch_custom_thumb_selector"
+            android:track="@drawable/switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="@+id/sw_subtitle_sync"
+            app:layout_constraintStart_toStartOf="@+id/sw_subtitle_sync"
+            app:layout_constraintTop_toBottomOf="@+id/sw_subtitle_sync" />
+
+        <Switch
+            android:id="@+id/sw_recommend_video_notification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
+            android:text="@string/recommend_video_notification"
+            android:showText="true"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            android:checked="@={viewModel.isSwRecommendVideoNotificationOpen()}"
+            android:switchTextAppearance="@style/SwitchTheme"
+            android:thumb="@drawable/switch_custom_thumb_selector"
+            android:track="@drawable/switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="@+id/sw_stop_play_in_checking"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/sw_stop_play_in_checking"
+            app:layout_constraintTop_toBottomOf="@+id/sw_stop_play_in_checking" />
+
+        <Switch
+            android:id="@+id/sw_learn_notification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
+            android:text="@string/learn_notification"
+            android:showText="true"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            android:checked="@={viewModel.isSwLearnNotificationOpen()}"
+            android:switchTextAppearance="@style/SwitchTheme"
+            android:thumb="@drawable/switch_custom_thumb_selector"
+            android:track="@drawable/switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="@+id/sw_recommend_video_notification"
+            app:layout_constraintStart_toStartOf="@+id/sw_recommend_video_notification"
+            app:layout_constraintTop_toBottomOf="@+id/sw_recommend_video_notification" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

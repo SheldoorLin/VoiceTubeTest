@@ -1,5 +1,6 @@
 package com.sheldon.voicetubetest.data.source.remote
 
+import androidx.lifecycle.LiveData
 import com.sheldon.voicetubetest.R
 import com.sheldon.voicetubetest.data.*
 import com.sheldon.voicetubetest.data.Videos
@@ -11,6 +12,7 @@ import com.sheldon.voicetubetest.util.Util.isInternetConnected
 
 
 object VoiceTubeRemoteDataSource : VoiceTubeDataSource {
+
 
     override suspend fun getVoiceTubeServerData(): Result<HomeVideoData> {
 
@@ -29,5 +31,17 @@ object VoiceTubeRemoteDataSource : VoiceTubeDataSource {
             Logger.w("[${this::class.simpleName}] exception=${e.message}")
             Result.Error(e)
         }
+    }
+
+    override suspend fun insertSettingOnPage(settingStatus: SettingStatus) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getAllSetting(): LiveData<SettingStatus> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override suspend fun updateSettingOnPage(settingStatus: SettingStatus) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
